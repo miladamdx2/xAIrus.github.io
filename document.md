@@ -890,7 +890,7 @@
 <div style=" display: block; margin-left: auto;
   margin-right: auto;
   width: 60%;">
-<img src="/flow.png">
+<img src="https://github.com/miladamdx2/xAIrus.github.io/blob/main/flow.png?raw=true">
 </div>
 <h3><strong>13.3 Input and Output for the Development Phase</strong></h3>
 <p><strong>Input:</strong></p>
