@@ -1,4 +1,4 @@
-<img src="/logo.png" />
+<img src="https://github.com/miladamdx2/xAIrus.github.io/blob/main/logo.png" />
 <h2><strong>Introduction</strong></h2>
 <p><span style="font-weight: 400;">Artificial Intelligence (AI) is transforming the software development landscape by introducing innovative approaches to problem-solving, automation, and process optimization. To systematically integrate AI into programming, this document presents a dedicated </span><strong>Software Process Model and Methodology</strong><span style="font-weight: 400;">.</span></p>
 <p><span style="font-weight: 400;">This methodology is designed to streamline and standardize the software development process while boosting efficiency and clarity. By incorporating clear criteria for each phase, it ensures that developers, teams, and organizations can effectively utilize AI capabilities at every stage of the software lifecycle, from inception to deployment.</span></p>
