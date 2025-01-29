@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body { font-family: 'Merriweather', serif; }
+        h1, h2, h3 { font-family: 'Poppins', sans-serif; }
+        #content { line-height: 1.75; }
+        #content h1 { font-size: 1.75rem; font-weight: bold; margin-top: 1.5rem; }
+        #content h2 { font-size: 1.5rem; font-weight: bold; margin-top: 1.25rem; }
+        #content h3 { font-size: 1.25rem; font-weight: bold; margin-top: 1rem; }
+        #content p { margin-bottom: 1rem; }
+        #content ul, #content ol { margin-left: 1.5rem; padding-left: 1rem; }
+        #content li { margin-bottom: 0.5rem; }
+        #content pre { background: #2d2d2d; color: #f8f8f2; padding: 1rem; border-radius: 5px; overflow-x: auto; }
+        #content code { background: #f5f5f5; padding: 0.2rem 0.4rem; border-radius: 3px; }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+    
+    <!-- Sidebar -->
+    <aside class="fixed left-0 top-0 h-full w-64 bg-white dark:bg-gray-800 p-4 shadow-lg overflow-y-auto">
+        <h2 class="text-lg font-bold">Table of Contents</h2>
+        <ul id="toc" class="mt-4 space-y-2"></ul>
+    </aside>
+    
+    <!-- Header -->
+    <header class="ml-64 flex justify-between items-center p-6 shadow-md bg-white dark:bg-gray-800">
+        <h1 class="text-2xl font-bold">xAIrus</h1>
+        <nav class="space-x-4">
+            <a href="#document" class="hover:underline">Document</a>
+            <a href="#flow" class="hover:underline">xAIrus Flow</a>
+            <!-- <button @click="darkMode = !darkMode" class="px-3 py-1 bg-gray-300 dark:bg-gray-600 rounded">Toggle Dark Mode</button> -->
+        </nav>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="ml-64 max-w-3xl mx-auto p-6" x-data="{ darkMode: false }">
+        
+        <!-- Document Section -->
+        <section id="document" class="mt-6 p-6 bg-white dark:bg-gray-800 shadow rounded">
+            <h2 class="text-xl font-bold">Leveraging AI in Software Development: A Comprehensive Software Process Model and Methodology</h2>
+            <div id="content" class="mt-4 prose prose-lg dark:prose-invert">
+                <!-- Markdown content will be dynamically inserted here -->
+            </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section id="flow" class="mt-12 p-6 bg-white dark:bg-gray-800 shadow rounded">
+            <h2 class="text-xl font-bold">xAIrus Flow</h2>
+            <form class="mt-4">
+                <div style="position: relative; width: 100%; height: 0; padding-top: 100.0000%;
+ padding-bottom: 0; box-shadow: 0 2px 8px 0 rgba(63,69,81,0.16); margin-top: 1.6em; margin-bottom: 0.9em; overflow: hidden;
+ border-radius: 8px; will-change: transform;">
+  <iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAGV-xwMo5M/SMu6vyTGkT_2R1jCnvt30Q/view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+</div>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAGV-xwMo5M&#x2F;SMu6vyTGkT_2R1jCnvt30Q&#x2F;view?utm_content=DAGV-xwMo5M&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">View Source</a>
+            </form>
+        </section>
+        
+    </main>
+    
+    <script>
+        var Counter = 0;
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("document.md") // Load markdown dynamically
+                .then(response => response.text())
+                .then(text => {
+                    document.getElementById("content").innerHTML = marked.parse(text);
+                    const toc = document.getElementById("toc");
+                    document.querySelectorAll("#content h1, #content h2, #content h3").forEach(heading => {
+                        const link = document.createElement("a");
+                        heading.id = Counter++;
+                        link.href = "#" + heading.id;
+                        link.textContent = heading.textContent;
+                        link.classList.add("block", "text-gray-800", "dark:text-gray-200", "hover:underline");
+                        const li = document.createElement("li");
+                        li.appendChild(link);
+                        toc.appendChild(li);
+                    });
+                });
+        });
+    </script>
+</body>
+</html>
